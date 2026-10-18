@@ -19,7 +19,7 @@ Built for the AWS **Agent Experience Hackathon: Strands Decider**. Decision patt
 | Does it work? | Held-out eval: **27/27** fixable failures healed, **0/21** wrong heals (Nova Micro asked the same question: 13/27 and 3/21). Full agent: **34/34**. Real repo ([tastejs/todomvc](https://github.com/tastejs/todomvc)): 4 commits, **0 wrong heals** |
 | Is it reusable? | Yes: [`patterns/policy-can-heal/`](patterns/policy-can-heal/) is a drop-in Strands `InterventionHandler` with its questions, rules and threshold notes |
 | What does the decision cost? | $0 in API fees, against about $9-20 (Nova Micro) or $132 (Nova Pro) per million decisions. Latency is a tie on a laptop; the win is correctness. [`results/COST_LATENCY.md`](results/COST_LATENCY.md) |
-| Demo video | {{VIDEO_LINK}} (2:49, silent with captions, recorded from live runs) |
+| Demo video | [Watch on YouTube](https://youtu.be/oHNKQBP5hpc) (2:49, silent with captions, recorded from live runs) |
 | Article | {{ARTICLE_LINK}} |
 
 ## For reviewers: where each requirement is

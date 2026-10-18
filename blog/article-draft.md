@@ -112,8 +112,8 @@ Keep the shape and swap the questions: one yes/no that is true only when the ris
 
 `make test` runs 27 tests with no model. `make serve`, then `make demo`, runs the video scenarios, `make todomvc` the four real TodoMVC commits, `make eval` the benchmark and `make scorecard` the full agent on all 34 mutations.
 
-- Repo: {{link after 16 Oct}}
-- Video: {{link}}
+- Repo: https://github.com/logesh4v/heal-or-halt
+- Video: https://youtu.be/oHNKQBP5hpc
 
 ## What I'd tell another builder
 
