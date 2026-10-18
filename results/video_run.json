@@ -1,0 +1,116 @@
+{
+ "commit": "fe2ae52",
+ "date": "2026-10-11 14:18",
+ "voice": "Rishi",
+ "beats": [
+  {
+   "beat": "rename",
+   "p": "0.92",
+   "action": "HEAL",
+   "rerun": "green",
+   "outcome": "pr",
+   "owner": "test_author",
+   "veto": null,
+   "fails": 3
+  },
+  {
+   "beat": "maths",
+   "p": "0.54",
+   "action": "HALT",
+   "rerun": null,
+   "outcome": "issue",
+   "owner": "developer",
+   "veto": null,
+   "fails": 2
+  },
+  {
+   "beat": "combo",
+   "p": "0.91",
+   "action": "HEAL",
+   "rerun": "red",
+   "outcome": "issue",
+   "owner": "test_author",
+   "veto": null,
+   "fails": 3
+  },
+  {
+   "beat": "grey",
+   "p": "0.57",
+   "action": "HALT",
+   "rerun": null,
+   "outcome": "issue",
+   "owner": "test_author",
+   "veto": "unsafe",
+   "fails": 3
+  }
+ ],
+ "transcript": [
+  "=== playground  commit: \"copy: rename the main button\"  (before = HEAD~1)",
+  "  [suite]   3 failing test(s)",
+  "  -- root cause: get_by_role(\"button\", name=\"Split bill\")  (3 test(s))",
+  "  [decider] can_heal 0.92 -> HEAL (>= 0.73)  owner=test_author  (3623 ms)",
+  "  [gate]    PROCEED apply_locator_fix 'Split bill' -> 'Calculate shares'",
+  "  [rerun]   GREEN",
+  "  [gate]    PROCEED open_pr (can_heal 0.92 -> HEAL (>= 0.73), re-run green)",
+  "  [agent]   I fixed the failing test by updating the button name from \"Split bill\" to \"Calculate shares\" to match the UI change, reran the tests (all passed), and opened a pull request.",
+  "  [output]  playground/PR-1.md",
+  "=== playground  commit: \"refactor: tidy share calculation\"  (before = HEAD~1)",
+  "  [suite]   2 failing test(s)",
+  "  -- root cause: get_by_role(\"status\")  (2 test(s))",
+  "  [decider] can_heal 0.54 -> HALT (assertion failed: assertions are never healed)  owner=developer  (12087 ms)",
+  "  [agent]   I filed an issue for the developer to review the recent share calculation changes, as the test failure is due to an assertion mismatch indicating a logic issue in the code.",
+  "  [output]  playground/ISSUE-1.md",
+  "=== combo-rename-math  (truth: combo)  commit: \"feat: new wording and a share helper\"",
+  "  [suite]   3 failing test(s)",
+  "  -- root cause: get_by_role(\"button\", name=\"Split bill\")  (3 test(s))",
+  "  [decider] can_heal 0.91 -> HEAL (>= 0.73)  owner=test_author  (1113 ms)",
+  "  [gate]    PROCEED apply_locator_fix 'Split bill' -> 'Calculate shares'",
+  "  [rerun]   RED, 2 failing",
+  "  [agent]   I renamed the button from 'Split bill' to 'Calculate shares' but the re-run showed assertion failures in test_even_split and test_rounds_to_paise, indicating a regression in the calculation logic. I f",
+  "  [output]  demo-run/combo-rename-math/ISSUE-1.md",
+  "=== test-typo-button  (truth: test_author)  commit: \"test: tidy helpers\"",
+  "  [suite]   3 failing test(s)",
+  "  -- root cause: get_by_role(\"button\", name=\"Splt bill\")  (3 test(s))",
+  "  [decider] can_heal 0.57 -> ASK (between 0.55 and 0.73: human approves)  owner=test_author  (880 ms)",
+  "  [veto]    Nova Pro second opinion: UNSAFE (1311 ms)",
+  "  [decider] can_heal 0.57 -> HALT (gray zone and Nova Pro vetoed the heal)",
+  "  [agent]   Filed an issue for the test owner regarding the failing 'Splt bill' button locator.",
+  "  [output]  demo-run/test-typo-button/ISSUE-1.md"
+ ],
+ "recorded_seconds": 191.3,
+ "final_seconds": 144.4,
+ "fast_forward": 4.0,
+ "fast_spans": [
+  [
+   33.2,
+   53.6
+  ],
+  [
+   72.5,
+   96.7
+  ],
+  [
+   116.3,
+   128.9
+  ],
+  [
+   149.8,
+   155.1
+  ]
+ ],
+ "narration_starts": [
+  1.2,
+  12.1,
+  27.2,
+  54.2,
+  63.8,
+  68.2,
+  98.2,
+  106.8,
+  129.6,
+  141.3,
+  155.8,
+  165.5,
+  180.1
+ ]
+}

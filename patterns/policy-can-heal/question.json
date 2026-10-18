@@ -1,0 +1,19 @@
+{
+  "can_heal": {
+    "type": "noul",
+    "instructions": "In a11y_diff, '-' lines are the old page and '+' lines the new page. Is there a '+' line that is a working replacement for the control the test was looking for: same kind of control, new name or new position?",
+    "criteria": {
+      "true": "a '+' line shows the same kind of control under a different name or in a different place",
+      "false": "the control only disappeared (a '-' line with no replacement), or it reappears marked [disabled], or the diff shows no change, or the page is an error page or did not load"
+    }
+  },
+  "halt_reason": {
+    "type": "choice",
+    "instructions": "A browser end-to-end test failed. Who needs to act on it?",
+    "criteria": {
+      "developer": "the app now behaves wrongly: a wrong value, a server error, missing data or a broken flow",
+      "platform": "the environment failed: server unreachable, network or DNS error, disk full, browser crash, or it passed on retry",
+      "test_author": "the test is wrong: a typo in the locator, a wrong fixture or expectation, an ambiguous locator or invalid input"
+    }
+  }
+}

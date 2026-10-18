@@ -1,0 +1,330 @@
+{
+  "rows": [
+    {
+      "label": "label_drift",
+      "pred": "label_drift",
+      "confidence": 0.9215,
+      "probs": {
+        "label_drift": 0.9372,
+        "layout_move": 0.0344,
+        "real_regression": 0.0099,
+        "env_flake": 0.0043,
+        "test_bug": 0.0142
+      },
+      "ms": 325.9
+    },
+    {
+      "label": "label_drift",
+      "pred": "label_drift",
+      "confidence": 0.9422,
+      "probs": {
+        "label_drift": 0.9538,
+        "layout_move": 0.021,
+        "real_regression": 0.0087,
+        "env_flake": 0.0043,
+        "test_bug": 0.0122
+      },
+      "ms": 331.3
+    },
+    {
+      "label": "label_drift",
+      "pred": "label_drift",
+      "confidence": 0.94,
+      "probs": {
+        "label_drift": 0.952,
+        "layout_move": 0.0242,
+        "real_regression": 0.0081,
+        "env_flake": 0.0033,
+        "test_bug": 0.0125
+      },
+      "ms": 393.4
+    },
+    {
+      "label": "label_drift",
+      "pred": "label_drift",
+      "confidence": 0.9367,
+      "probs": {
+        "label_drift": 0.9494,
+        "layout_move": 0.0227,
+        "real_regression": 0.0116,
+        "env_flake": 0.0043,
+        "test_bug": 0.012
+      },
+      "ms": 463.4
+    },
+    {
+      "label": "label_drift",
+      "pred": "label_drift",
+      "confidence": 0.9359,
+      "probs": {
+        "label_drift": 0.9487,
+        "layout_move": 0.0248,
+        "real_regression": 0.0085,
+        "env_flake": 0.0044,
+        "test_bug": 0.0136
+      },
+      "ms": 780.7
+    },
+    {
+      "label": "layout_move",
+      "pred": "layout_move",
+      "confidence": 0.5629,
+      "probs": {
+        "label_drift": 0.3156,
+        "layout_move": 0.6503,
+        "real_regression": 0.0105,
+        "env_flake": 0.0055,
+        "test_bug": 0.0182
+      },
+      "ms": 661.7
+    },
+    {
+      "label": "layout_move",
+      "pred": "label_drift",
+      "confidence": 0.3635,
+      "probs": {
+        "label_drift": 0.4908,
+        "layout_move": 0.4799,
+        "real_regression": 0.0088,
+        "env_flake": 0.0043,
+        "test_bug": 0.0162
+      },
+      "ms": 597.2
+    },
+    {
+      "label": "layout_move",
+      "pred": "label_drift",
+      "confidence": 0.6976,
+      "probs": {
+        "label_drift": 0.758,
+        "layout_move": 0.1778,
+        "real_regression": 0.0167,
+        "env_flake": 0.0071,
+        "test_bug": 0.0404
+      },
+      "ms": 647.4
+    },
+    {
+      "label": "layout_move",
+      "pred": "layout_move",
+      "confidence": 0.433,
+      "probs": {
+        "label_drift": 0.4139,
+        "layout_move": 0.5464,
+        "real_regression": 0.012,
+        "env_flake": 0.0051,
+        "test_bug": 0.0226
+      },
+      "ms": 653.6
+    },
+    {
+      "label": "layout_move",
+      "pred": "layout_move",
+      "confidence": 0.3673,
+      "probs": {
+        "label_drift": 0.4775,
+        "layout_move": 0.4939,
+        "real_regression": 0.0106,
+        "env_flake": 0.0047,
+        "test_bug": 0.0133
+      },
+      "ms": 539.0
+    },
+    {
+      "label": "real_regression",
+      "pred": "real_regression",
+      "confidence": 0.4309,
+      "probs": {
+        "label_drift": 0.1259,
+        "layout_move": 0.0564,
+        "real_regression": 0.5447,
+        "env_flake": 0.0208,
+        "test_bug": 0.2521
+      },
+      "ms": 461.6
+    },
+    {
+      "label": "real_regression",
+      "pred": "real_regression",
+      "confidence": 0.4599,
+      "probs": {
+        "label_drift": 0.175,
+        "layout_move": 0.0688,
+        "real_regression": 0.5679,
+        "env_flake": 0.0343,
+        "test_bug": 0.154
+      },
+      "ms": 517.6
+    },
+    {
+      "label": "real_regression",
+      "pred": "real_regression",
+      "confidence": 0.6149,
+      "probs": {
+        "label_drift": 0.0958,
+        "layout_move": 0.0792,
+        "real_regression": 0.6919,
+        "env_flake": 0.0149,
+        "test_bug": 0.1182
+      },
+      "ms": 497.4
+    },
+    {
+      "label": "real_regression",
+      "pred": "label_drift",
+      "confidence": 0.2962,
+      "probs": {
+        "label_drift": 0.437,
+        "layout_move": 0.1758,
+        "real_regression": 0.2129,
+        "env_flake": 0.0214,
+        "test_bug": 0.1529
+      },
+      "ms": 537.3
+    },
+    {
+      "label": "real_regression",
+      "pred": "test_bug",
+      "confidence": 0.3343,
+      "probs": {
+        "label_drift": 0.1034,
+        "layout_move": 0.0876,
+        "real_regression": 0.3165,
+        "env_flake": 0.0251,
+        "test_bug": 0.4674
+      },
+      "ms": 475.9
+    },
+    {
+      "label": "env_flake",
+      "pred": "env_flake",
+      "confidence": 0.5147,
+      "probs": {
+        "label_drift": 0.0406,
+        "layout_move": 0.0417,
+        "real_regression": 0.1022,
+        "env_flake": 0.6118,
+        "test_bug": 0.2038
+      },
+      "ms": 472.9
+    },
+    {
+      "label": "env_flake",
+      "pred": "env_flake",
+      "confidence": 0.3207,
+      "probs": {
+        "label_drift": 0.0704,
+        "layout_move": 0.0923,
+        "real_regression": 0.144,
+        "env_flake": 0.4565,
+        "test_bug": 0.2368
+      },
+      "ms": 462.7
+    },
+    {
+      "label": "env_flake",
+      "pred": "label_drift",
+      "confidence": 0.043,
+      "probs": {
+        "label_drift": 0.2344,
+        "layout_move": 0.1548,
+        "real_regression": 0.204,
+        "env_flake": 0.2015,
+        "test_bug": 0.2053
+      },
+      "ms": 511.6
+    },
+    {
+      "label": "env_flake",
+      "pred": "env_flake",
+      "confidence": 0.3583,
+      "probs": {
+        "label_drift": 0.05,
+        "layout_move": 0.0596,
+        "real_regression": 0.2232,
+        "env_flake": 0.4866,
+        "test_bug": 0.1806
+      },
+      "ms": 465.1
+    },
+    {
+      "label": "env_flake",
+      "pred": "env_flake",
+      "confidence": 0.546,
+      "probs": {
+        "label_drift": 0.0396,
+        "layout_move": 0.043,
+        "real_regression": 0.1924,
+        "env_flake": 0.6368,
+        "test_bug": 0.0882
+      },
+      "ms": 465.1
+    },
+    {
+      "label": "test_bug",
+      "pred": "label_drift",
+      "confidence": 0.5035,
+      "probs": {
+        "label_drift": 0.6028,
+        "layout_move": 0.107,
+        "real_regression": 0.0323,
+        "env_flake": 0.0102,
+        "test_bug": 0.2477
+      },
+      "ms": 463.5
+    },
+    {
+      "label": "test_bug",
+      "pred": "label_drift",
+      "confidence": 0.5831,
+      "probs": {
+        "label_drift": 0.6664,
+        "layout_move": 0.038,
+        "real_regression": 0.1465,
+        "env_flake": 0.0102,
+        "test_bug": 0.1388
+      },
+      "ms": 520.4
+    },
+    {
+      "label": "test_bug",
+      "pred": "label_drift",
+      "confidence": 0.1932,
+      "probs": {
+        "label_drift": 0.3545,
+        "layout_move": 0.2691,
+        "real_regression": 0.0672,
+        "env_flake": 0.0148,
+        "test_bug": 0.2943
+      },
+      "ms": 540.6
+    },
+    {
+      "label": "test_bug",
+      "pred": "real_regression",
+      "confidence": 0.3873,
+      "probs": {
+        "label_drift": 0.0663,
+        "layout_move": 0.0579,
+        "real_regression": 0.5099,
+        "env_flake": 0.023,
+        "test_bug": 0.3429
+      },
+      "ms": 558.6
+    },
+    {
+      "label": "test_bug",
+      "pred": "real_regression",
+      "confidence": 0.2633,
+      "probs": {
+        "label_drift": 0.1617,
+        "layout_move": 0.0679,
+        "real_regression": 0.4107,
+        "env_flake": 0.0171,
+        "test_bug": 0.3426
+      },
+      "ms": 499.7
+    }
+  ],
+  "accuracy": 0.6
+}

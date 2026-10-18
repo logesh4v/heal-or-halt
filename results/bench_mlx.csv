@@ -1,0 +1,10 @@
+device,dtype,state_tokens,questions,path,input_tokens,median_ms,p90_ms,min_ms,reps,peak_mem_gib,same_answer
+mlx,bfloat16,256,1,single,350,360.5,363.7,359.8,5,3.75,
+mlx,bfloat16,256,8,prefix,945,1010.6,1029.0,994.8,5,4.19,8/8
+mlx,bfloat16,256,8,batched,2800,3068.3,3178.0,2869.2,5,4.09,8/8
+mlx,bfloat16,1024,1,single,1118,1281.0,1507.7,1260.6,5,3.98,
+mlx,bfloat16,1024,8,prefix,1713,1981.1,2847.8,1906.2,5,4.32,8/8
+mlx,bfloat16,1024,8,batched,8944,10577.0,16274.9,9445.4,5,4.52,8/8
+mlx,bfloat16,4000,1,single,4094,8032.4,11696.9,6538.0,5,4.09,
+mlx,bfloat16,4000,8,prefix,4689,9771.2,10803.2,9391.6,5,4.93,8/8
+mlx,bfloat16,4000,8,batched,32752,57086.3,78467.7,56438.5,5,6.0,8/8

@@ -1,0 +1,34 @@
+label_drift      fwd label_drift      rev label_drift      P(can_heal) 0.823 halt->test_author (0.48)  3q 1829.6 ms
+label_drift      fwd label_drift      rev label_drift      P(can_heal) 0.761 halt->test_author (0.25)  3q 1355.0 ms
+label_drift      fwd label_drift      rev label_drift      P(can_heal) 0.733 halt->test_author (0.45)  3q 1473.7 ms
+label_drift      fwd label_drift      rev label_drift      P(can_heal) 0.802 halt->test_author (0.35)  3q 1503.4 ms
+label_drift      fwd label_drift      rev label_drift      P(can_heal) 0.727 halt->test_author (0.45)  3q 1451.6 ms
+layout_move      fwd layout_move      rev layout_move      P(can_heal) 0.901 halt->test_author (0.34)  3q 1471.4 ms
+layout_move      fwd label_drift      rev layout_move      P(can_heal) 0.848 halt->test_author (0.33)  3q 1795.3 ms
+layout_move      fwd label_drift      rev layout_move      P(can_heal) 0.860 halt->test_author (0.39)  3q 1511.3 ms
+layout_move      fwd layout_move      rev layout_move      P(can_heal) 0.857 halt->test_author (0.49)  3q 1377.3 ms
+layout_move      fwd layout_move      rev layout_move      P(can_heal) 0.858 halt->test_author (0.31)  3q 1327.8 ms
+real_regression  fwd real_regression  rev real_regression  P(can_heal) 0.406 halt->developer   (0.77)  3q 1308.0 ms
+real_regression  fwd real_regression  rev real_regression  P(can_heal) 0.379 halt->developer   (0.70)  3q 1618.0 ms
+real_regression  fwd real_regression  rev real_regression  P(can_heal) 0.466 halt->developer   (0.79)  3q 2065.5 ms
+real_regression  fwd label_drift      rev label_drift      P(can_heal) 0.525 halt->developer   (0.35)  3q 1725.4 ms
+real_regression  fwd test_bug         rev test_bug         P(can_heal) 0.385 halt->developer   (0.40)  3q 2502.1 ms
+env_flake        fwd env_flake        rev env_flake        P(can_heal) 0.238 halt->platform    (0.29)  3q 2162.8 ms
+env_flake        fwd env_flake        rev env_flake        P(can_heal) 0.349 halt->platform    (0.40)  3q 4098.3 ms
+env_flake        fwd label_drift      rev label_drift      P(can_heal) 0.377 halt->platform    (0.43)  3q 1392.2 ms
+env_flake        fwd env_flake        rev env_flake        P(can_heal) 0.329 halt->platform    (0.26)  3q 1200.1 ms
+env_flake        fwd env_flake        rev env_flake        P(can_heal) 0.334 halt->developer   (0.37)  3q 1240.5 ms
+test_bug         fwd label_drift      rev label_drift      P(can_heal) 0.402 halt->test_author (0.60)  3q 2317.3 ms
+test_bug         fwd label_drift      rev label_drift      P(can_heal) 0.319 halt->developer   (0.45)  3q 3639.7 ms
+test_bug         fwd label_drift      rev layout_move      P(can_heal) 0.543 halt->test_author (0.47)  3q 1652.3 ms
+test_bug         fwd real_regression  rev real_regression  P(can_heal) 0.394 halt->developer   (0.67)  3q 1671.4 ms
+test_bug         fwd real_regression  rev test_bug         P(can_heal) 0.457 halt->test_author (0.28)  3q 2150.1 ms
+
+reversed order accuracy 18/25; answer changed on 4/25 cases vs forward order
+can_heal >= 0.5: heals 10/10 healable, wrongly heals 2/15 non-healable
+can_heal >= 0.7: heals 10/10 healable, wrongly heals 0/15 non-healable
+can_heal >= 0.8: heals 7/10 healable, wrongly heals 0/15 non-healable
+can_heal >= 0.9: heals 1/10 healable, wrongly heals 0/15 non-healable
+can_heal binary accuracy at 0.5: 23/25
+halt_reason accuracy on the 15 non-healable cases: 12/15
+3 questions in one request: median 1618.0 ms, max 4098.3 ms

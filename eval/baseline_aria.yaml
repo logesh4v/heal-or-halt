@@ -1,0 +1,9 @@
+- main:
+  - heading "SplitPay" [level=1]
+  - text: Bill total (₹)
+  - spinbutton "Bill total (₹)"
+  - text: Number of people
+  - spinbutton "Number of people"
+  - button "Split bill"
+  - status
+  - alert

@@ -1,0 +1,324 @@
+[
+ {
+  "m": "btn-rename-2",
+  "t": "heal",
+  "replaced": 0.92,
+  "broken": 0.17,
+  "unchanged": 0.21
+ },
+ {
+  "m": "btn-rename-2",
+  "t": "heal",
+  "replaced": 0.92,
+  "broken": 0.15,
+  "unchanged": 0.21
+ },
+ {
+  "m": "btn-rename-2",
+  "t": "heal",
+  "replaced": 0.88,
+  "broken": 0.2,
+  "unchanged": 0.23
+ },
+ {
+  "m": "btn-rename-3",
+  "t": "heal",
+  "replaced": 0.89,
+  "broken": 0.23,
+  "unchanged": 0.24
+ },
+ {
+  "m": "btn-rename-3",
+  "t": "heal",
+  "replaced": 0.89,
+  "broken": 0.23,
+  "unchanged": 0.25
+ },
+ {
+  "m": "btn-rename-3",
+  "t": "heal",
+  "replaced": 0.84,
+  "broken": 0.26,
+  "unchanged": 0.26
+ },
+ {
+  "m": "btn-rename-6",
+  "t": "heal",
+  "replaced": 0.76,
+  "broken": 0.36,
+  "unchanged": 0.26
+ },
+ {
+  "m": "btn-rename-6",
+  "t": "heal",
+  "replaced": 0.76,
+  "broken": 0.36,
+  "unchanged": 0.26
+ },
+ {
+  "m": "btn-rename-6",
+  "t": "heal",
+  "replaced": 0.66,
+  "broken": 0.39,
+  "unchanged": 0.26
+ },
+ {
+  "m": "btn-rename-7",
+  "t": "heal",
+  "replaced": 0.93,
+  "broken": 0.12,
+  "unchanged": 0.22
+ },
+ {
+  "m": "btn-rename-7",
+  "t": "heal",
+  "replaced": 0.93,
+  "broken": 0.12,
+  "unchanged": 0.22
+ },
+ {
+  "m": "btn-rename-7",
+  "t": "heal",
+  "replaced": 0.89,
+  "broken": 0.18,
+  "unchanged": 0.24
+ },
+ {
+  "m": "total-label-1",
+  "t": "heal",
+  "replaced": 0.92,
+  "broken": 0.08,
+  "unchanged": 0.19
+ },
+ {
+  "m": "total-label-1",
+  "t": "heal",
+  "replaced": 0.91,
+  "broken": 0.11,
+  "unchanged": 0.19
+ },
+ {
+  "m": "total-label-1",
+  "t": "heal",
+  "replaced": 0.9,
+  "broken": 0.13,
+  "unchanged": 0.19
+ },
+ {
+  "m": "people-label-0",
+  "t": "heal",
+  "replaced": 0.94,
+  "broken": 0.08,
+  "unchanged": 0.19
+ },
+ {
+  "m": "people-label-0",
+  "t": "heal",
+  "replaced": 0.94,
+  "broken": 0.08,
+  "unchanged": 0.2
+ },
+ {
+  "m": "people-label-0",
+  "t": "heal",
+  "replaced": 0.92,
+  "broken": 0.11,
+  "unchanged": 0.19
+ },
+ {
+  "m": "people-label-2",
+  "t": "heal",
+  "replaced": 0.93,
+  "broken": 0.1,
+  "unchanged": 0.2
+ },
+ {
+  "m": "people-label-2",
+  "t": "heal",
+  "replaced": 0.92,
+  "broken": 0.13,
+  "unchanged": 0.21
+ },
+ {
+  "m": "people-label-2",
+  "t": "heal",
+  "replaced": 0.9,
+  "broken": 0.18,
+  "unchanged": 0.2
+ },
+ {
+  "m": "btn-to-input",
+  "t": "heal",
+  "replaced": 0.91,
+  "broken": 0.29,
+  "unchanged": 0.23
+ },
+ {
+  "m": "btn-to-input",
+  "t": "heal",
+  "replaced": 0.92,
+  "broken": 0.25,
+  "unchanged": 0.22
+ },
+ {
+  "m": "btn-to-input",
+  "t": "heal",
+  "replaced": 0.86,
+  "broken": 0.32,
+  "unchanged": 0.25
+ },
+ {
+  "m": "btn-move-top",
+  "t": "heal",
+  "replaced": 0.87,
+  "broken": 0.21,
+  "unchanged": 0.34
+ },
+ {
+  "m": "btn-move-top",
+  "t": "heal",
+  "replaced": 0.88,
+  "broken": 0.2,
+  "unchanged": 0.36
+ },
+ {
+  "m": "btn-move-top",
+  "t": "heal",
+  "replaced": 0.78,
+  "broken": 0.33,
+  "unchanged": 0.36
+ },
+ {
+  "m": "js-crash",
+  "t": "developer",
+  "replaced": 0.56,
+  "broken": 0.65,
+  "unchanged": 0.73
+ },
+ {
+  "m": "js-crash",
+  "t": "developer",
+  "replaced": 0.55,
+  "broken": 0.64,
+  "unchanged": 0.7
+ },
+ {
+  "m": "js-crash",
+  "t": "developer",
+  "replaced": 0.32,
+  "broken": 0.76,
+  "unchanged": 0.75
+ },
+ {
+  "m": "btn-hidden",
+  "t": "developer",
+  "replaced": 0.63,
+  "broken": 0.44,
+  "unchanged": 0.65
+ },
+ {
+  "m": "btn-hidden",
+  "t": "developer",
+  "replaced": 0.62,
+  "broken": 0.41,
+  "unchanged": 0.67
+ },
+ {
+  "m": "btn-hidden",
+  "t": "developer",
+  "replaced": 0.44,
+  "broken": 0.56,
+  "unchanged": 0.65
+ },
+ {
+  "m": "people-input-removed",
+  "t": "developer",
+  "replaced": 0.71,
+  "broken": 0.39,
+  "unchanged": 0.56
+ },
+ {
+  "m": "people-input-removed",
+  "t": "developer",
+  "replaced": 0.72,
+  "broken": 0.37,
+  "unchanged": 0.53
+ },
+ {
+  "m": "people-input-removed",
+  "t": "developer",
+  "replaced": 0.55,
+  "broken": 0.53,
+  "unchanged": 0.53
+ },
+ {
+  "m": "submit-noop",
+  "t": "developer",
+  "replaced": 0.55,
+  "broken": 0.61,
+  "unchanged": 0.73
+ },
+ {
+  "m": "submit-noop",
+  "t": "developer",
+  "replaced": 0.5,
+  "broken": 0.64,
+  "unchanged": 0.72
+ },
+ {
+  "m": "submit-noop",
+  "t": "developer",
+  "replaced": 0.35,
+  "broken": 0.74,
+  "unchanged": 0.72
+ },
+ {
+  "m": "server-down",
+  "t": "platform",
+  "replaced": 0.15,
+  "broken": 0.72,
+  "unchanged": 0.43
+ },
+ {
+  "m": "server-down",
+  "t": "platform",
+  "replaced": 0.15,
+  "broken": 0.72,
+  "unchanged": 0.44
+ },
+ {
+  "m": "server-down",
+  "t": "platform",
+  "replaced": 0.14,
+  "broken": 0.69,
+  "unchanged": 0.42
+ },
+ {
+  "m": "test-wrong-role",
+  "t": "test_author",
+  "replaced": 0.55,
+  "broken": 0.43,
+  "unchanged": 0.76
+ },
+ {
+  "m": "test-wrong-role",
+  "t": "test_author",
+  "replaced": 0.53,
+  "broken": 0.42,
+  "unchanged": 0.76
+ },
+ {
+  "m": "test-wrong-role",
+  "t": "test_author",
+  "replaced": 0.32,
+  "broken": 0.59,
+  "unchanged": 0.77
+ },
+ {
+  "m": "test-wrong-expect",
+  "t": "test_author",
+  "replaced": 0.6,
+  "broken": 0.76,
+  "unchanged": 0.56
+ }
+]

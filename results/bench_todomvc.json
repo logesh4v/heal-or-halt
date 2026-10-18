@@ -1,0 +1,33 @@
+{
+ "states": [
+  "combo",
+  "counter-bug",
+  "rename-clear",
+  "rename-placeholder"
+ ],
+ "calls_per_model": 20,
+ "latency_ms": {
+  "decider": {
+   "p50": 1137,
+   "p95": 1972
+  },
+  "nova_micro": {
+   "p50": 525,
+   "p95": 564
+  },
+  "nova_pro": {
+   "p50": 579,
+   "p95": 660
+  }
+ },
+ "tokens_per_call": {
+  "nova_micro": {
+   "input": 237,
+   "output": 5
+  },
+  "nova_pro": {
+   "input": 145,
+   "output": 5
+  }
+ }
+}

@@ -1,0 +1,210 @@
+{
+ "total_secs": 169.0,
+ "limit_secs": 175.0,
+ "speed_up": 6.0,
+ "captions": [
+  {
+   "start": 8.8,
+   "end": 15.0,
+   "secs": 6.2,
+   "words": 13,
+   "words_per_sec": 2.1,
+   "ok": true,
+   "text": "A renamed button turns a test suite red, even when the product works."
+  },
+  {
+   "start": 15.4,
+   "end": 21.2,
+   "secs": 5.8,
+   "words": 12,
+   "words_per_sec": 2.07,
+   "ok": true,
+   "text": "Auto-healing tools fix that. The risk is healing over a real bug."
+  },
+  {
+   "start": 23.6,
+   "end": 33.0,
+   "secs": 9.4,
+   "words": 21,
+   "words_per_sec": 2.23,
+   "ok": true,
+   "text": "Code collects the evidence. Strands Decider 2B makes the call. Amazon Nova writes the fix. A re-run decides if it ships."
+  },
+  {
+   "start": 35.4,
+   "end": 40.0,
+   "secs": 4.6,
+   "words": 9,
+   "words_per_sec": 1.95,
+   "ok": true,
+   "text": "Same agent, same thresholds, nothing retuned, on upstream TodoMVC."
+  },
+  {
+   "start": 55.7,
+   "end": 59.9,
+   "secs": 4.2,
+   "words": 8,
+   "words_per_sec": 1.9,
+   "ok": true,
+   "text": "The input placeholder was reworded. Decider: heal, 0.91."
+  },
+  {
+   "start": 60.4,
+   "end": 65.0,
+   "secs": 4.6,
+   "words": 9,
+   "words_per_sec": 1.95,
+   "ok": true,
+   "text": "Locator fixed, suite re-run, all green. Pull request opened."
+  },
+  {
+   "start": 76.6,
+   "end": 82.0,
+   "secs": 5.4,
+   "words": 11,
+   "words_per_sec": 2.04,
+   "ok": true,
+   "text": "Reworded and a counter bug in one commit. Decider: heal, 0.90."
+  },
+  {
+   "start": 82.4,
+   "end": 89.8,
+   "secs": 7.4,
+   "words": 16,
+   "words_per_sec": 2.16,
+   "ok": true,
+   "text": "The re-run is still red. The fix is undone and an issue goes to the developer."
+  },
+  {
+   "start": 99.3,
+   "end": 105.5,
+   "secs": 6.2,
+   "words": 13,
+   "words_per_sec": 2.1,
+   "ok": true,
+   "text": "The button changed from \u201cClear completed\u201d to \u201cClear done\u201d. The agent guessed \u201cClear\u201d."
+  },
+  {
+   "start": 106.0,
+   "end": 113.4,
+   "secs": 7.4,
+   "words": 16,
+   "words_per_sec": 2.16,
+   "ok": true,
+   "text": "That guess would have passed. The gate refused it: the name was not in the evidence."
+  },
+  {
+   "start": 115.8,
+   "end": 122.0,
+   "secs": 6.2,
+   "words": 13,
+   "words_per_sec": 2.1,
+   "ok": true,
+   "text": "Four real commits. Zero wrong heals. One safe miss went to a person."
+  },
+  {
+   "start": 124.4,
+   "end": 130.6,
+   "secs": 6.2,
+   "words": 13,
+   "words_per_sec": 2.1,
+   "ok": true,
+   "text": "Held-out eval: 27 of 27 healed, zero wrong heals. Nova Micro made three."
+  },
+  {
+   "start": 131.0,
+   "end": 136.4,
+   "secs": 5.4,
+   "words": 11,
+   "words_per_sec": 2.04,
+   "ok": true,
+   "text": "Full agent, all 34 kinds of breakage: 34 of 34 correct."
+  },
+  {
+   "start": 136.9,
+   "end": 140.7,
+   "secs": 3.8,
+   "words": 7,
+   "words_per_sec": 1.84,
+   "ok": true,
+   "text": "Real repository: four commits, zero wrong heals."
+  },
+  {
+   "start": 143.1,
+   "end": 154.5,
+   "secs": 11.4,
+   "words": 26,
+   "words_per_sec": 2.28,
+   "ok": true,
+   "text": "Decision cost: $0 in API fees, versus about $9 to $132 per million on Bedrock. On a laptop, latency is a tie. The win is correctness."
+  },
+  {
+   "start": 156.9,
+   "end": 162.7,
+   "secs": 5.8,
+   "words": 12,
+   "words_per_sec": 2.07,
+   "ok": true,
+   "text": "One question, plain rules, one gate. Drop it into any Strands agent."
+  }
+ ],
+ "live_runs": [
+  {
+   "start": 45.5,
+   "end": 55.1,
+   "real_secs": 57.5
+  },
+  {
+   "start": 70.4,
+   "end": 76.0,
+   "real_secs": 33.4
+  },
+  {
+   "start": 95.3,
+   "end": 98.7,
+   "real_secs": 20.6
+  }
+ ],
+ "results": {
+  "counter-bug": {
+   "p": "0.71",
+   "action": "HALT",
+   "assertion": true,
+   "rerun": null,
+   "outcomes": [
+    "ISSUE"
+   ],
+   "deny_guess": false
+  },
+  "rename-placeholder": {
+   "p": "0.91",
+   "action": "HEAL",
+   "assertion": false,
+   "rerun": "GREEN",
+   "outcomes": [
+    "PR"
+   ],
+   "deny_guess": false
+  },
+  "combo": {
+   "p": "0.90",
+   "action": "HEAL",
+   "assertion": false,
+   "rerun": "RED",
+   "outcomes": [
+    "ISSUE"
+   ],
+   "deny_guess": false
+  },
+  "rename-clear": {
+   "p": "0.77",
+   "action": "HEAL",
+   "assertion": false,
+   "rerun": null,
+   "outcomes": [
+    "ISSUE"
+   ],
+   "deny_guess": true
+  }
+ }
+}

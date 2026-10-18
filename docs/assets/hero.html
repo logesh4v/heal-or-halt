@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Source of docs/assets/hero.png. Render: .venv/bin/python tools/render_hero.py -->
+<html><head><meta charset="utf-8"><style>
+:root{--bg:#0d1117;--panel:#161b22;--line:#30363d;--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--heal:#3fb950;--halt:#f85149;
+      --sans:-apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif;--mono:"SF Mono",Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;height:800px;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;
+     display:flex;align-items:center;padding:0 96px;gap:72px;position:relative;overflow:hidden}
+.left{flex:1}
+.kicker{font-size:17px;color:var(--accent);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:22px}
+h1{font-size:96px;font-weight:650;letter-spacing:-2.5px;line-height:1;margin-bottom:22px}
+.tag{font-size:30px;color:var(--muted);line-height:1.35;max-width:600px;margin-bottom:46px}
+.stats{display:flex;gap:44px}
+.stat b{display:block;font:600 44px var(--mono);letter-spacing:-1px}
+.stat span{display:block;font-size:16px;color:var(--muted);margin-top:6px;line-height:1.35;max-width:190px}
+.panel{width:640px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px 32px}
+.ph{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;
+    padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.row{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0;padding-bottom:4px}
+.chip{flex:0 0 132px;text-align:center;font:600 20px var(--mono);border-radius:8px;padding:9px 0}
+.HEAL{color:var(--heal);border:1.5px solid var(--heal)} .DENY,.HALT{color:var(--halt);border:1.5px solid var(--halt)}
+.what{font-size:21px;line-height:1.35} .what small{display:block;font:16px var(--mono);color:var(--muted);margin-top:6px}
+.ok{color:var(--heal)} .no{color:var(--halt)}
+.foot{position:absolute;left:96px;bottom:38px;font-size:16px;color:var(--muted);letter-spacing:.5px}
+</style></head><body>
+<div class="left">
+  <div class="kicker">Strands Decider 2B · Amazon Nova on Bedrock · #policy</div>
+  <h1>Heal or Halt</h1>
+  <div class="tag">Self-healing UI tests that refuse to fake a fix.</div>
+  <div class="stats">
+    <div class="stat"><b class="ok">0/21</b><span>wrong heals on held-out failures that must not be healed</span></div>
+    <div class="stat"><b>27/27</b><span>fixable failures healed, held-out</span></div>
+    <div class="stat"><b>34/34</b><span>full agent, every kind of breakage</span></div>
+  </div>
+</div>
+<div class="panel">
+  <div class="ph"><span>tastejs/todomvc · live run</span><span>18 Oct 2026</span></div>
+  <div class="row"><div class="chip HEAL">HEAL 0.91</div>
+    <div class="what">Placeholder reworded<small>re-run <span class="ok">green</span> → pull request</small></div></div>
+  <div class="row"><div class="chip HEAL">HEAL 0.90</div>
+    <div class="what">Reworded + counter bug<small>re-run <span class="no">red</span> → fix undone, issue</small></div></div>
+  <div class="row"><div class="chip DENY">DENY</div>
+    <div class="what">Guessed name, not in evidence<small>would have passed → refused, issue</small></div></div>
+  <div class="row"><div class="chip HALT">HALT</div>
+    <div class="what">Off-by-one in a counter<small>assertion failed → issue</small></div></div>
+</div>
+<div class="foot">Bedrock writes · Decider decides · code verifies</div>
+</body></html>

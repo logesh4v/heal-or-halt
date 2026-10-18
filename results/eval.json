@@ -1,0 +1,1171 @@
+{
+ "summary": {
+  "n_cases": 97,
+  "n_mutations": 34,
+  "split": {
+   "calibration_mutations": 16,
+   "test_mutations": 17,
+   "test_cases": 48
+  },
+  "alpha": 0.05,
+  "tau_conformal": 0.73,
+  "test_split": {
+   "decider_policy_tau": {
+    "healed": "27/27",
+    "wrong_heals": "0/21",
+    "accuracy": 1.0
+   },
+   "decider_policy_0.70": {
+    "healed": "27/27",
+    "wrong_heals": "0/21",
+    "accuracy": 1.0
+   },
+   "decider_policy_shipped": {
+    "healed": "27/27",
+    "wrong_heals": "0/21",
+    "accuracy": 1.0
+   },
+   "decider_raw_0.50": {
+    "healed": "27/27",
+    "wrong_heals": "11/21",
+    "accuracy": 0.771
+   },
+   "rule_baseline": {
+    "healed": "24/27",
+    "wrong_heals": "3/21",
+    "accuracy": 0.875
+   },
+   "nova_micro": {
+    "healed": "13/27",
+    "wrong_heals": "3/21",
+    "accuracy": 0.646
+   },
+   "gray_zone_to_human": 6
+  },
+  "all_cases_policy_0.70": {
+   "healed": "53/54",
+   "wrong_heals": "2/40",
+   "accuracy": 0.968
+  },
+  "halt_owner_accuracy": 0.8,
+  "combo": [
+   {
+    "mutation": "combo-rename-math",
+    "step": "test_even_split",
+    "p": 0.911
+   },
+   {
+    "mutation": "combo-rename-math",
+    "step": "test_rounds_to_paise",
+    "p": 0.925
+   },
+   {
+    "mutation": "combo-rename-math",
+    "step": "test_zero_people_shows_error",
+    "p": 0.854
+   }
+  ],
+  "latency_ms": {
+   "decider_p50": 545,
+   "decider_p95": 733,
+   "nova_micro_p50": 643,
+   "nova_micro_p95": 922
+  },
+  "p_by_truth": {
+   "combo": [
+    0.85,
+    0.92
+   ],
+   "developer": [
+    0.32,
+    0.72
+   ],
+   "heal": [
+    0.66,
+    0.95
+   ],
+   "platform": [
+    0.14,
+    0.26
+   ],
+   "test_author": [
+    0.32,
+    0.6
+   ]
+  },
+  "nova_micro_tokens": {
+   "input": 25146,
+   "output": 485,
+   "unparsed": 0
+  }
+ },
+ "rows": [
+  {
+   "mutation": "btn-rename-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9157,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 2168.359999996028,
+   "llm_ms": 1109.1259579989128
+  },
+  {
+   "mutation": "btn-rename-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9279,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 1610.1227090111934,
+   "llm_ms": 702.3102079983801
+  },
+  {
+   "mutation": "btn-rename-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8773,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 506.2649169994984,
+   "llm_ms": 597.4809589970391
+  },
+  {
+   "mutation": "btn-rename-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.946,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 542.1099170052912,
+   "llm_ms": 858.6650830111466
+  },
+  {
+   "mutation": "btn-rename-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.945,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 535.1229579973733,
+   "llm_ms": 719.3875419907272
+  },
+  {
+   "mutation": "btn-rename-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9133,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 532.7525000029709,
+   "llm_ms": 660.7098340027733
+  },
+  {
+   "mutation": "btn-rename-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9221,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 498.9029999997001,
+   "llm_ms": 632.560124999145
+  },
+  {
+   "mutation": "btn-rename-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9215,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 484.1307919996325,
+   "llm_ms": 878.7340840062825
+  },
+  {
+   "mutation": "btn-rename-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.881,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 523.049750001519,
+   "llm_ms": 808.7576250109123
+  },
+  {
+   "mutation": "btn-rename-3",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8923,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 491.72595799609553,
+   "llm_ms": 718.8537080073729
+  },
+  {
+   "mutation": "btn-rename-3",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8943,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 483.372499991674,
+   "llm_ms": 702.7892500045709
+  },
+  {
+   "mutation": "btn-rename-3",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8391,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 474.3275829969207,
+   "llm_ms": 886.8840829964029
+  },
+  {
+   "mutation": "btn-rename-4",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8864,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 515.9893749951152,
+   "llm_ms": 659.5137080003042
+  },
+  {
+   "mutation": "btn-rename-4",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8799,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 540.0205409969203,
+   "llm_ms": 534.9399999977322
+  },
+  {
+   "mutation": "btn-rename-4",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8144,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 485.42895799619146,
+   "llm_ms": 811.1040410003625
+  },
+  {
+   "mutation": "btn-rename-5",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8814,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 3360.6752499908907,
+   "llm_ms": 617.2184169990942
+  },
+  {
+   "mutation": "btn-rename-5",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9013,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 474.29404099239036,
+   "llm_ms": 797.9856659949291
+  },
+  {
+   "mutation": "btn-rename-5",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8262,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 504.46266699873377,
+   "llm_ms": 566.5637500060257
+  },
+  {
+   "mutation": "btn-rename-6",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.76,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 504.7445840027649,
+   "llm_ms": 814.4409999949858
+  },
+  {
+   "mutation": "btn-rename-6",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.7583,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 564.0131670079427,
+   "llm_ms": 570.032125004218
+  },
+  {
+   "mutation": "btn-rename-6",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.6562,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 519.7417500021402,
+   "llm_ms": 608.3955829963088
+  },
+  {
+   "mutation": "btn-rename-7",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9318,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 505.67454200063366,
+   "llm_ms": 636.0594579891767
+  },
+  {
+   "mutation": "btn-rename-7",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9255,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 546.4287079958012,
+   "llm_ms": 658.1146249955054
+  },
+  {
+   "mutation": "btn-rename-7",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8849,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 549.3290000013076,
+   "llm_ms": 1208.3133749983972
+  },
+  {
+   "mutation": "total-label-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9375,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 592.6219589891843,
+   "llm_ms": 605.7387919863686
+  },
+  {
+   "mutation": "total-label-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9417,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 593.4144580096472,
+   "llm_ms": 580.4092089965707
+  },
+  {
+   "mutation": "total-label-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.923,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 575.1649160083616,
+   "llm_ms": 629.7111669991864
+  },
+  {
+   "mutation": "total-label-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9245,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 543.3130000019446,
+   "llm_ms": 518.4600420034258
+  },
+  {
+   "mutation": "total-label-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.91,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 547.3772499972256,
+   "llm_ms": 672.8978749888483
+  },
+  {
+   "mutation": "total-label-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9012,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 544.0981669962639,
+   "llm_ms": 683.5787919990253
+  },
+  {
+   "mutation": "total-label-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.931,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 612.1169999969425,
+   "llm_ms": 471.97779100679327
+  },
+  {
+   "mutation": "total-label-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9382,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 548.6566249892348,
+   "llm_ms": 569.558417002554
+  },
+  {
+   "mutation": "total-label-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9234,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 565.5415420042118,
+   "llm_ms": 559.0363339870237
+  },
+  {
+   "mutation": "people-label-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9391,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 1010.3356659965357,
+   "llm_ms": 533.798416989157
+  },
+  {
+   "mutation": "people-label-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9383,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 553.6761249968549,
+   "llm_ms": 556.7037079890724
+  },
+  {
+   "mutation": "people-label-0",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9235,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 564.2745420045685,
+   "llm_ms": 734.352333995048
+  },
+  {
+   "mutation": "people-label-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.941,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 733.4540000010747,
+   "llm_ms": 510.04079199628904
+  },
+  {
+   "mutation": "people-label-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.945,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 552.4441659945296,
+   "llm_ms": 580.266582997865
+  },
+  {
+   "mutation": "people-label-1",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9271,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 567.5345409981674,
+   "llm_ms": 811.8970840005204
+  },
+  {
+   "mutation": "people-label-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9302,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 578.93749998766,
+   "llm_ms": 682.2215420106659
+  },
+  {
+   "mutation": "people-label-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9241,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 561.0597080085427,
+   "llm_ms": 650.5537089979043
+  },
+  {
+   "mutation": "people-label-2",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8989,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 543.0272079975111,
+   "llm_ms": 614.3621660012286
+  },
+  {
+   "mutation": "btn-to-input",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.91,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 544.2632920021424,
+   "llm_ms": 507.1906250086613
+  },
+  {
+   "mutation": "btn-to-input",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9223,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 498.76333300198894,
+   "llm_ms": 668.0808749952121
+  },
+  {
+   "mutation": "btn-to-input",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8552,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 495.44812500244007,
+   "llm_ms": 718.0252079997445
+  },
+  {
+   "mutation": "btn-aria-label",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9406,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 556.3527909980621,
+   "llm_ms": 1619.3028340057936
+  },
+  {
+   "mutation": "btn-aria-label",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9436,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 876.4205410116119,
+   "llm_ms": 1019.0703749976819
+  },
+  {
+   "mutation": "btn-aria-label",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.9119,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 565.5643749923911,
+   "llm_ms": 634.3035419995431
+  },
+  {
+   "mutation": "btn-move-top",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8664,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 494.39270798757207,
+   "llm_ms": 547.290124988649
+  },
+  {
+   "mutation": "btn-move-top",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8854,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 571.3341249938821,
+   "llm_ms": 566.0635840031318
+  },
+  {
+   "mutation": "btn-move-top",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.7844,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 573.0733750096988,
+   "llm_ms": 643.558416995802
+  },
+  {
+   "mutation": "btn-move-wrap",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.865,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 554.7037500073202,
+   "llm_ms": 724.1829999984475
+  },
+  {
+   "mutation": "btn-move-wrap",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.8533,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 558.2252089952817,
+   "llm_ms": 750.3174169978593
+  },
+  {
+   "mutation": "btn-move-wrap",
+   "truth": "heal",
+   "kind": "locator",
+   "p": 0.7822,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 565.5727919947822,
+   "llm_ms": 657.2262920089997
+  },
+  {
+   "mutation": "math-multiply",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.5271,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 572.4120829981985,
+   "llm_ms": 636.1587080027675
+  },
+  {
+   "mutation": "math-multiply",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.5177,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 581.8832499935525,
+   "llm_ms": 825.253041999531
+  },
+  {
+   "mutation": "math-floor",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.5453,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 618.7980410031741,
+   "llm_ms": 712.0368339965353
+  },
+  {
+   "mutation": "js-crash",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.5659,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 518.5894169990206,
+   "llm_ms": 628.4361250000075
+  },
+  {
+   "mutation": "js-crash",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.546,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 576.4214160008123,
+   "llm_ms": 533.816958006355
+  },
+  {
+   "mutation": "js-crash",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.3154,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 514.5400000037625,
+   "llm_ms": 640.648250002414
+  },
+  {
+   "mutation": "btn-disabled",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.5638,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 570.0062089890707,
+   "llm_ms": 691.97879100102
+  },
+  {
+   "mutation": "btn-disabled",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.5585,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 538.011541008018,
+   "llm_ms": 653.217750004842
+  },
+  {
+   "mutation": "btn-disabled",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.498,
+   "halt_reason": "developer",
+   "rule": true,
+   "llm": true,
+   "decider_ms": 544.6536669915076,
+   "llm_ms": 683.322249999037
+  },
+  {
+   "mutation": "btn-removed",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.6348,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 496.8588329938939,
+   "llm_ms": 568.230125005357
+  },
+  {
+   "mutation": "btn-removed",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.6323,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 519.3519580061547,
+   "llm_ms": 498.8023750047432
+  },
+  {
+   "mutation": "btn-removed",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.4312,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 490.4066659946693,
+   "llm_ms": 466.0742499982007
+  },
+  {
+   "mutation": "btn-hidden",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.6288,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 488.17570800019894,
+   "llm_ms": 527.1972079935949
+  },
+  {
+   "mutation": "btn-hidden",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.6227,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 493.63458300649654,
+   "llm_ms": 608.0135840020375
+  },
+  {
+   "mutation": "btn-hidden",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.4432,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 542.9727499868022,
+   "llm_ms": 927.9722500068601
+  },
+  {
+   "mutation": "people-input-removed",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.7131,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 529.5057080074912,
+   "llm_ms": 792.6264170091599
+  },
+  {
+   "mutation": "people-input-removed",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.7215,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 541.4283330028411,
+   "llm_ms": 560.8482919924427
+  },
+  {
+   "mutation": "people-input-removed",
+   "truth": "developer",
+   "kind": "locator",
+   "p": 0.5528,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 501.0972500022035,
+   "llm_ms": 488.54116701113526
+  },
+  {
+   "mutation": "submit-noop",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.5489,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 487.7307089918759,
+   "llm_ms": 613.0671669961885
+  },
+  {
+   "mutation": "submit-noop",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.4957,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 538.9548750099493,
+   "llm_ms": 582.5034160079667
+  },
+  {
+   "mutation": "submit-noop",
+   "truth": "developer",
+   "kind": "assertion",
+   "p": 0.353,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 513.2784169982187,
+   "llm_ms": 698.165167006664
+  },
+  {
+   "mutation": "server-down",
+   "truth": "platform",
+   "kind": "navigation",
+   "p": 0.1515,
+   "halt_reason": "platform",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 630.5629999988014,
+   "llm_ms": 619.6680419961922
+  },
+  {
+   "mutation": "server-down",
+   "truth": "platform",
+   "kind": "navigation",
+   "p": 0.1499,
+   "halt_reason": "platform",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 661.0439999931259,
+   "llm_ms": 736.9723339943448
+  },
+  {
+   "mutation": "server-down",
+   "truth": "platform",
+   "kind": "navigation",
+   "p": 0.1438,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 609.4248330045957,
+   "llm_ms": 496.6112499969313
+  },
+  {
+   "mutation": "server-500",
+   "truth": "platform",
+   "kind": "locator",
+   "p": 0.2359,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 615.7909169996856,
+   "llm_ms": 662.811457994394
+  },
+  {
+   "mutation": "server-500",
+   "truth": "platform",
+   "kind": "locator",
+   "p": 0.2236,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 619.3104590056464,
+   "llm_ms": 643.3966669865185
+  },
+  {
+   "mutation": "server-500",
+   "truth": "platform",
+   "kind": "locator",
+   "p": 0.2575,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 606.5121660067234,
+   "llm_ms": 894.2155830009142
+  },
+  {
+   "mutation": "server-slow",
+   "truth": "platform",
+   "kind": "navigation",
+   "p": 0.2084,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 652.7246670011664,
+   "llm_ms": 680.3238330030581
+  },
+  {
+   "mutation": "server-slow",
+   "truth": "platform",
+   "kind": "navigation",
+   "p": 0.2018,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 606.7609589954372,
+   "llm_ms": 552.8247089969227
+  },
+  {
+   "mutation": "server-slow",
+   "truth": "platform",
+   "kind": "navigation",
+   "p": 0.1694,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 626.0299999994459,
+   "llm_ms": 671.7730410018703
+  },
+  {
+   "mutation": "test-typo-label",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.5663,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 490.4064159927657,
+   "llm_ms": 602.4746250041062
+  },
+  {
+   "mutation": "test-typo-label",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.5003,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 533.3302079961868,
+   "llm_ms": 594.1502499917988
+  },
+  {
+   "mutation": "test-typo-label",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.3357,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 519.0977080055745,
+   "llm_ms": 618.7108750018524
+  },
+  {
+   "mutation": "test-wrong-role",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.5542,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 509.3771249958081,
+   "llm_ms": 770.1826249976875
+  },
+  {
+   "mutation": "test-wrong-role",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.5282,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 564.779374995851,
+   "llm_ms": 614.7436250030296
+  },
+  {
+   "mutation": "test-wrong-role",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.3173,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 690.1933750050375,
+   "llm_ms": 548.5279579879716
+  },
+  {
+   "mutation": "test-wrong-expect",
+   "truth": "test_author",
+   "kind": "assertion",
+   "p": 0.5985,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 647.9340829973808,
+   "llm_ms": 601.6205000050832
+  },
+  {
+   "mutation": "combo-rename-math",
+   "truth": "combo",
+   "kind": "locator",
+   "p": 0.9114,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 561.4392080024118,
+   "llm_ms": 652.8079999989131
+  },
+  {
+   "mutation": "combo-rename-math",
+   "truth": "combo",
+   "kind": "locator",
+   "p": 0.9246,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 513.5914999991655,
+   "llm_ms": 633.6454999982379
+  },
+  {
+   "mutation": "combo-rename-math",
+   "truth": "combo",
+   "kind": "locator",
+   "p": 0.8544,
+   "halt_reason": "test_author",
+   "rule": true,
+   "llm": false,
+   "decider_ms": 504.14266700681765,
+   "llm_ms": 922.4632499972358
+  },
+  {
+   "mutation": "test-typo-button",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.571,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 598.7422079924727,
+   "llm_ms": 659.5078329992248
+  },
+  {
+   "mutation": "test-typo-button",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.5346,
+   "halt_reason": "test_author",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 520.8765419956762,
+   "llm_ms": 724.5450829941547
+  },
+  {
+   "mutation": "test-typo-button",
+   "truth": "test_author",
+   "kind": "locator",
+   "p": 0.3235,
+   "halt_reason": "developer",
+   "rule": false,
+   "llm": false,
+   "decider_ms": 529.9286250083242,
+   "llm_ms": 608.6498749937164
+  }
+ ]
+}
