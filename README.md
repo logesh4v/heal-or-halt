@@ -130,6 +130,23 @@ Upstream [tastejs/todomvc](https://github.com/tastejs/todomvc) (`javascript-es5`
 
 The win is correctness, not speed: Nova Micro asked the same question would have made 3 wrong heals on the held-out eval; Heal or Halt made 0. Decider costs $0 per decision in API fees against ~$9-10 (Nova Micro) or ~$132 (Nova Pro) per million, and no test data leaves the machine. Latency is a tie at best on a laptop. Full table and sources: [`results/COST_LATENCY.md`](results/COST_LATENCY.md).
 
+### Local vs hosted cloud Decider (18-19 Oct 2026)
+
+Same code, chosen by environment: no `DECIDER_API_KEY` means the local server, a key plus `DECIDER_URL` means the hosted decider-cloud.
+
+| | Local | Hosted cloud |
+|---|---|---|
+| Model | `strands-decider-2B-qwen3.5-v1-2610` | `strands-decider-2b-hobson-v19` (older) |
+| Runs on | MacBook Air M4, MLX | CPU servers on AWS, via CloudFront |
+| Full agent, 34 kinds of breakage | **34/34, 0 wrong heals** | **34/34, 0 wrong heals** |
+| can_heal on fixable cases | 0.76-0.95 | 0.76-0.93 |
+| Highest can_heal on a must-halt case | 0.71 | 0.64 |
+| Latency, 20 interleaved calls, p50 / p95 | **794 / 1,042 ms** | 3,254 / 4,277 ms (server alone 1,832 / 2,814 ms) |
+| Laptop memory | ~5 GB | none |
+| Failure data | stays on the machine | sent to the service (loopback URLs masked) |
+
+The 0.73 threshold held on both models without retuning. Local is ~4x faster per call; cloud needs no GPU, no model download and no memory. Rows: [`results/AGENT_SCORECARD_CLOUD.md`](results/AGENT_SCORECARD_CLOUD.md), [`results/bench_backends.json`](results/bench_backends.json).
+
 ### Other measurements
 
 | What | Result |
@@ -395,6 +412,7 @@ If you change the question wording, re-run `make monkey eval`. The v1 → v2 sto
 |---|---|
 | Decider code | `strands-labs/strands-decider@0ac22a97` |
 | Decider model | `StrandsAgents/strands-decider-2B-qwen3.5-v1-2610@216d1ccb` |
+| Cloud Decider model (optional) | `strands-decider-2b-hobson-v19`, set with `DECIDER_URL` + `DECIDER_API_KEY` |
 | Base model | `Qwen/Qwen3.5-2B-Base@b1485b2f` |
 | strands-agents | 1.59.0 |
 | playwright / pytest-playwright | 1.63.0 / 0.9.0 |

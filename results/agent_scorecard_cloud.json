@@ -1,0 +1,448 @@
+[
+ {
+  "mutation": "btn-rename-0",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.91 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.6
+ },
+ {
+  "mutation": "btn-rename-1",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.88 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.2
+ },
+ {
+  "mutation": "btn-rename-2",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.91 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.7
+ },
+ {
+  "mutation": "btn-rename-3",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.90 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 17.8
+ },
+ {
+  "mutation": "btn-rename-4",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.92 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 17.6
+ },
+ {
+  "mutation": "btn-rename-5",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.90 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.1
+ },
+ {
+  "mutation": "btn-rename-6",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.80 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 17.3
+ },
+ {
+  "mutation": "btn-rename-7",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.89 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 17.5
+ },
+ {
+  "mutation": "total-label-0",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.91 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.4
+ },
+ {
+  "mutation": "total-label-1",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.91 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.0
+ },
+ {
+  "mutation": "total-label-2",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.91 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.0
+ },
+ {
+  "mutation": "people-label-0",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.90 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 17.7
+ },
+ {
+  "mutation": "people-label-1",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.91 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.0
+ },
+ {
+  "mutation": "people-label-2",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.89 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.5
+ },
+ {
+  "mutation": "btn-to-input",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.90 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 19.4
+ },
+ {
+  "mutation": "btn-aria-label",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.93 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.7
+ },
+ {
+  "mutation": "btn-move-top",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.76 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 17.3
+ },
+ {
+  "mutation": "btn-move-wrap",
+  "truth": "heal",
+  "ok": true,
+  "prs": 1,
+  "outcomes": [
+   "pr"
+  ],
+  "verdicts": [
+   "can_heal 0.88 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 18.4
+ },
+ {
+  "mutation": "math-multiply",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.57 -> HALT (assertion failed: assertions are never healed)"
+  ],
+  "seconds": 11.9
+ },
+ {
+  "mutation": "math-floor",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.57 -> HALT (assertion failed: assertions are never healed)"
+  ],
+  "seconds": 10.2
+ },
+ {
+  "mutation": "js-crash",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue",
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.64 -> HALT (assertion failed: assertions are never healed)",
+   "can_heal 0.41 -> HALT (assertion failed: assertions are never healed)"
+  ],
+  "seconds": 20.2
+ },
+ {
+  "mutation": "btn-disabled",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.59 -> HALT (gray zone and Nova Pro vetoed the heal)"
+  ],
+  "seconds": 16.4
+ },
+ {
+  "mutation": "btn-removed",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.60 -> HALT (gray zone and Nova Pro vetoed the heal)"
+  ],
+  "seconds": 15.3
+ },
+ {
+  "mutation": "btn-hidden",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.58 -> HALT (gray zone and Nova Pro vetoed the heal)"
+  ],
+  "seconds": 15.8
+ },
+ {
+  "mutation": "people-input-removed",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.64 -> HALT (gray zone and Nova Pro vetoed the heal)"
+  ],
+  "seconds": 15.6
+ },
+ {
+  "mutation": "submit-noop",
+  "truth": "developer",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue",
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.59 -> HALT (assertion failed: assertions are never healed)",
+   "can_heal 0.43 -> HALT (assertion failed: assertions are never healed)"
+  ],
+  "seconds": 21.1
+ },
+ {
+  "mutation": "server-down",
+  "truth": "platform",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.18 -> HALT (page did not load: environment problem)"
+  ],
+  "seconds": 8.6
+ },
+ {
+  "mutation": "server-500",
+  "truth": "platform",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.30 -> HALT (below 0.55: route to developer)"
+  ],
+  "seconds": 15.1
+ },
+ {
+  "mutation": "server-slow",
+  "truth": "platform",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.24 -> HALT (page did not load: environment problem)"
+  ],
+  "seconds": 14.7
+ },
+ {
+  "mutation": "test-typo-button",
+  "truth": "test_author",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.61 -> HALT (gray zone and Nova Pro vetoed the heal)"
+  ],
+  "seconds": 15.3
+ },
+ {
+  "mutation": "test-typo-label",
+  "truth": "test_author",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.59 -> HALT (gray zone and Nova Pro vetoed the heal)"
+  ],
+  "seconds": 16.3
+ },
+ {
+  "mutation": "test-wrong-role",
+  "truth": "test_author",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.60 -> HALT (gray zone and Nova Pro vetoed the heal)"
+  ],
+  "seconds": 16.3
+ },
+ {
+  "mutation": "test-wrong-expect",
+  "truth": "test_author",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.64 -> HALT (assertion failed: assertions are never healed)"
+  ],
+  "seconds": 10.6
+ },
+ {
+  "mutation": "combo-rename-math",
+  "truth": "combo",
+  "ok": true,
+  "prs": 0,
+  "outcomes": [
+   "issue"
+  ],
+  "verdicts": [
+   "can_heal 0.90 -> HEAL (>= 0.73)"
+  ],
+  "seconds": 23.0
+ }
+]

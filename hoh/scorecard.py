@@ -22,9 +22,14 @@ from hoh.monkey import MUTATIONS
 def main() -> None:
     import sys
 
+    from handler import backend
+
+    name, base, _ = backend()
+    print(f"decider backend: {name} ({base})", flush=True)
+    sfx = "" if name == "local" else f"_{name}"  # cloud results never overwrite the local record
     only = set(sys.argv[1:])
     old = {}
-    prev = ROOT / "results" / "agent_scorecard.json"
+    prev = ROOT / "results" / f"agent_scorecard{sfx}.json"
     if only and prev.exists():
         old = {r["mutation"]: r for r in json.loads(prev.read_text())}
     rows = []
@@ -58,12 +63,14 @@ def main() -> None:
     missed = sum(1 for r in rows if r["truth"] == "heal" and not r["ok"])
     md = ["# Agent scorecard (full Strands agent, every mutation)", "",
           f"Correct outcome: **{passed}/{len(rows)}**. Wrong heals (PR on a non-healable): **{wrong_heals}**. "
-          f"Healable cases not healed: **{missed}**.", "",
-          "| Mutation | Truth | Outcome | Decision | OK |", "|---|---|---|---|---|"]
+          f"Healable cases not healed: **{missed}**.", ""]
+    if name != "local":
+        md += [f"Decider backend: **{name}** (hosted decider-cloud). Thresholds were calibrated on the local model.", ""]
+    md += ["| Mutation | Truth | Outcome | Decision | OK |", "|---|---|---|---|---|"]
     md += [f"| {r['mutation']} | {r['truth']} | {', '.join(r['outcomes'])} | `{r['verdicts'][0] if r['verdicts'] else ''}` "
            f"| {'yes' if r['ok'] else '**no**'} |" for r in rows]
-    (ROOT / "results" / "AGENT_SCORECARD.md").write_text("\n".join(md) + "\n")
-    (ROOT / "results" / "agent_scorecard.json").write_text(json.dumps(rows, indent=1))
+    (ROOT / "results" / f"AGENT_SCORECARD{sfx.upper()}.md").write_text("\n".join(md) + "\n")
+    (ROOT / "results" / f"agent_scorecard{sfx}.json").write_text(json.dumps(rows, indent=1))
     print("\n".join(md[:3]))
 
 

@@ -37,10 +37,16 @@ def check() -> bool:
         print(f"  {'OK  ' if good else 'FAIL'} {name:10} {detail}", flush=True)
 
     try:
-        with urllib.request.urlopen("http://127.0.0.1:8099/health", timeout=3) as r:  # noqa: S310 (loopback)
-            line("decider", r.status == 200, "127.0.0.1:8099 healthy")
+        from handler import backend
+
+        name, base, auth = backend()
+        probe = "/health" if name == "local" else "/v1/models"
+        req = urllib.request.Request(f"{base}{probe}", headers=auth)
+        with urllib.request.urlopen(req, timeout=10) as r:  # noqa: S310 (loopback or https cloud)
+            line("decider", r.status == 200, f"{name}: {base} healthy")
     except Exception as exc:
-        line("decider", False, f"not reachable ({type(exc).__name__}): run `make serve` and wait ~15 s")
+        line("decider", False, f"not reachable ({type(exc).__name__}: {str(exc)[:80]}): "
+                               "local -> run `make serve` and wait ~15 s; cloud -> check DECIDER_URL / DECIDER_API_KEY")
     try:
         import boto3
 

@@ -1,0 +1,41 @@
+{
+ "calls_per_backend": 20,
+ "states": [
+  "rename-placeholder",
+  "counter-bug",
+  "combo",
+  "rename-clear"
+ ],
+ "client_ms": {
+  "local": {
+   "p50": 794,
+   "p95": 1042,
+   "min": 520,
+   "max": 1264
+  },
+  "cloud": {
+   "p50": 3254,
+   "p95": 4277,
+   "min": 2967,
+   "max": 4302
+  }
+ },
+ "cloud_server_ms": {
+  "p50": 1832,
+  "p95": 2814
+ },
+ "can_heal": {
+  "local": {
+   "rename-placeholder": 0.9051,
+   "counter-bug": 0.7109,
+   "combo": 0.903,
+   "rename-clear": 0.7713
+  },
+  "cloud": {
+   "rename-placeholder": 0.8488,
+   "counter-bug": 0.6889,
+   "combo": 0.8394,
+   "rename-clear": 0.6772
+  }
+ }
+}

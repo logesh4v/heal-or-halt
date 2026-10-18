@@ -357,6 +357,19 @@ This is where I want to be most careful, because only some of these numbers are 
 
 Prices are the AWS Price List API's us-east-1 on-demand rates on 18 Oct (Nova Micro $0.035 / $0.14 and Nova Pro $0.80 / $3.20 per million input / output tokens), multiplied by the tokens I measured. On 18 Oct my laptop had 13 GB of swap in use, which is why Decider was slower than the week before.
 
+**Local vs the hosted cloud Decider (measured by me, 18-19 Oct)**
+
+Our user group runs a hosted Decider for hackathon teams, so I made the backend a switch: no API key means my laptop, a key means the cloud. Then I ran the whole 34-case scorecard again against the cloud, plus a fair latency bench: the same 4 TodoMVC failures, 20 calls per side, interleaved so both saw the same machine load.
+
+| | Local | Hosted cloud |
+|---|---|---|
+| Model | `strands-decider-2B-qwen3.5-v1-2610` (MLX, MacBook Air M4) | `strands-decider-2b-hobson-v19` (CPU) |
+| Full agent, 34 kinds of breakage | **34/34, 0 wrong heals** | **34/34, 0 wrong heals** |
+| Lowest heal vs highest must-halt | 0.76 vs 0.71 | 0.76 vs 0.64 |
+| p50 / p95 per decision | **794 / 1,042 ms** | 3,254 / 4,277 ms |
+
+Two things surprised me. The 0.73 threshold, calibrated on my local model, held on the older cloud model without retuning. And the first cloud run died at case 27 with a `403`: the service's firewall blocks any request containing a `127.0.0.1` address, and a "page failed to load" error always has one. The fix masks loopback URLs before a cloud call; the port number never mattered to the model anyway. Local is about four times faster per call; the cloud's win is that any laptop can run the agent with no GPU and no 5 GB model.
+
 **What other people measured, or AWS documents (not run by me)**
 
 | Setup | What is known | Status |
