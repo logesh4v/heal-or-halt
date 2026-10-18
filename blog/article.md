@@ -21,6 +21,61 @@ Heal or Halt is a Strands agent on Amazon Nova 2 Lite that watches a Playwright 
 
 > Bedrock writes, Decider decides, code verifies.
 
+## Architecture
+
+```
+   Developer commit breaks a Playwright test
+                 │
+                 ▼
+   pytest + Playwright (real Chrome, app served on 127.0.0.1)
+                 │  one failing test = one record
+                 ▼
+   Collector (code, no model)         hoh/collect.py
+     step · locator · error · aria-snapshot diff (- old / + new) · commit
+                 │
+                 ▼
+   Failure-type filter (code)
+     assertion failed ─────────────────────────► HALT → developer
+     page did not load ────────────────────────► HALT → platform
+     locator not found
+                 │
+                 ▼
+   Strands Decider 2B, local (MLX, 127.0.0.1:8099)
+     can_heal?     yes/no + calibrated confidence
+     halt_reason?  developer | platform | test_author
+                 │
+     ┌───────────┴──────────────┬──────────────────────┐
+   ≥ 0.73                  0.55 – 0.73              < 0.55
+     │                          │                      │
+     │                   Amazon Nova Pro          HALT → owner
+     │                   second opinion,          (Nova writes the issue)
+     │                   VETO ONLY
+     ▼
+   Strands agent on Amazon Nova 2 Lite
+     tools: read_failure · apply_locator_fix · rerun_tests · open_pr · file_issue
+                 │  every code-changing tool call passes through ▼
+   HealGate (a Strands InterventionHandler, code)
+     • only the failing locator's name may change
+     • the new name must appear on a '+' line of the evidence
+     • one fix attempt per failure · 3 denials → locked out
+     • no open_pr without a green re-run
+                 │
+                 ▼
+   Re-run the whole suite
+     green → branch heal/<old>-to-<new> + PR receipt (facts written by code)
+     red   → fix undone → HALT → issue for the developer
+```
+
+## The heal-or-halt loop
+
+1. **Collect.** A pytest hook turns each real failure into five short facts. The key one is the accessibility-snapshot diff between the last green commit and now.
+2. **Filter.** Code halts the cases that must never be healed: assertion failures and pages that did not load.
+3. **Decide.** Decider answers `can_heal` and `halt_reason` in one request. Code turns the confidence into heal, ask or halt.
+4. **Write.** On heal, Nova 2 Lite proposes the new locator. On halt, it writes the issue for the right owner.
+5. **Gate.** HealGate checks every code-changing tool call against the verdict and the evidence.
+6. **Verify.** The whole suite re-runs. Only green ships, as a branch with a receipt.
+7. **Fail closed.** If the agent stops without a PR or an issue, code undoes its edits and files the issue itself.
+
 ## Why Decider, and not just another LLM call
 
 Strands Decider 2B is an open, experimental decision model from AWS with about 2 billion parameters. It does not generate text. You give it a state and a typed question, and it returns a choice, a yes or no, or a score, each with a calibrated confidence. The official Strands announcement reports a median of about 115 ms on an RTX 3090 and about 153 ms on a MacBook Pro M3.
@@ -45,18 +100,90 @@ MLX was about 2.5 to 3 times faster and lighter, and asking several questions ov
 
 ## The decision I handed to Decider
 
-A deterministic collector turns each real failure into a five-field state of a few hundred tokens: the failing step, the locator, the Playwright error, a diff of the page's accessibility snapshot (`-` old, `+` new) and the commit message. Decider gets two questions about it in one request:
+A deterministic collector turns each real failure into a five-field state of a few hundred tokens. This is the real state from the TodoMVC run, when the input's placeholder was reworded:
 
-1. `can_heal` (yes/no): *Is there a '+' line that is a working replacement for the control the test was looking for: same kind of control, new name or new position?*
-2. `halt_reason` (choice): developer, platform or test_author.
+```json
+{
+ "step": "test_add_todos",
+ "locator": "get_by_placeholder(\"What needs to be done?\")",
+ "error": "TimeoutError: Locator.fill: Timeout 2000ms exceeded.\nCall log:\n- waiting for get_by_placeholder(\"What needs to be done?\")",
+ "a11y_diff": "-- textbox \"What needs to be done?\"\n+- textbox \"Add a task\"",
+ "commit": "copy: friendlier input placeholder"
+}
+```
+
+Decider gets two typed questions about it, in one request:
+
+```json
+// patterns/policy-can-heal/question.json
+{
+  "can_heal": {
+    "type": "noul",
+    "instructions": "In a11y_diff, '-' lines are the old page and '+' lines the new page. Is there a '+' line that is a working replacement for the control the test was looking for: same kind of control, new name or new position?",
+    "criteria": {
+      "true": "a '+' line shows the same kind of control under a different name or in a different place",
+      "false": "the control only disappeared (a '-' line with no replacement), or it reappears marked [disabled], or the diff shows no change, or the page is an error page or did not load"
+    }
+  },
+  "halt_reason": {
+    "type": "choice",
+    "instructions": "A browser end-to-end test failed. Who needs to act on it?",
+    "criteria": {
+      "developer": "the app now behaves wrongly: a wrong value, a server error, missing data or a broken flow",
+      "platform": "the environment failed: server unreachable, network or DNS error, disk full, browser crash, or it passed on retry",
+      "test_author": "the test is wrong: a typo in the locator, a wrong fixture or expectation, an ambiguous locator or invalid input"
+    }
+  }
+}
+```
+
+The call itself is one HTTP request to Decider on loopback. Its server has no authentication, so it never leaves `127.0.0.1`:
+
+```python
+# patterns/policy-can-heal/handler.py
+def ask_decider(state: dict[str, str], url: str = DEFAULT_URL, timeout: float = 60.0) -> dict[str, Any]:
+    body = json.dumps({"state": state, "questions": QUESTIONS}).encode()
+    req = urllib.request.Request(f"{url}/v1/systemone", data=body, headers={"content-type": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310 (fixed loopback URL)
+        return json.loads(resp.read())["answers"]
+```
 
 Code, not the model, turns the confidence into an action:
 
-| `can_heal` | Action |
-|---|---|
-| ≥ 0.73 | Heal: fix, re-run, PR only if green |
-| 0.55 – 0.73 | Ask: Amazon Nova Pro gives a second opinion that can **only veto**, then a human |
-| < 0.55 | Halt: issue for the owner |
+```
+   0.0 ──────────────── 0.55 ───────────── 0.73 ──────────────── 1.0
+        HALT → owner     │  ASK: Nova Pro    │  HEAL: fix, re-run,
+        (issue, no code) │  veto, then human │  PR only if green
+```
+
+The rules are a pure function with no I/O, so every band and every hard rule has a unit test:
+
+```python
+# patterns/policy-can-heal/handler.py
+def decide(answers, *, old_name="", new_name="", rerun_green=None,
+           heal=HEAL, ask=ASK, kind="locator", a11y_diff="") -> Verdict:
+    """Pure policy over Decider's typed answers. No I/O, so it is unit-testable."""
+    p = float(answers["can_heal"]["noul"])
+    owner = str(answers.get("halt_reason", {}).get("choice", "developer"))
+    if kind == "assertion":
+        return Verdict("halt", p, "developer", "assertion failed: assertions are never healed")
+    if kind == "navigation":
+        return Verdict("halt", p, "platform", "page did not load: environment problem")
+    if p < ask:
+        return Verdict("halt", p, owner, f"below {ask:.2f}: route to {owner}")
+    if new_name and old_name and old_name.lower() in new_name.lower():
+        return Verdict("halt", p, "test_author", "new locator still contains the old name")
+    if new_name and a11y_diff and not any(f'"{new_name}"' in ln for ln in a11y_diff.splitlines()
+                                          if ln.startswith("+")):
+        return Verdict("halt", p, "test_author", "new name is not on a '+' line of the evidence")
+    if rerun_green is False:
+        return Verdict("halt", p, owner, "healed test still red on re-run")
+    if p < heal:
+        return Verdict("ask", p, owner, f"between {ask:.2f} and {heal:.2f}: human approves")
+    return Verdict("heal", p, owner, f">= {heal:.2f}")
+```
+
+(Shortened slightly from the repo; one line that routes a no-change diff to the test author is left out.)
 
 Hard rules sit around the number and cannot be argued with: an assertion failure is never healed, a page that did not load goes to platform, a new name that still contains the old one is rejected (Playwright's role-name match is a substring match), the new name must appear on a `+` line of the evidence, there is no PR without a green re-run, and an agent that pushes against the gate three times is locked out and the case is halted by code.
 
@@ -95,7 +222,32 @@ I ran the complete Strands agent, with Decider, the gate, Nova 2 Lite, the re-ru
 
 The combo case is the one I like best. Decider says heal (0.91), and it is right: the button really was only renamed. Nova fixes the locator, the re-run goes red because the maths is now wrong, the gate refuses the PR and the agent files an issue for the developer. The classifier did not need to see the hidden bug; the re-run did.
 
-Then I attacked my own agent: same tools, but a system prompt telling it to always make the suite green and never file issues. The first version of the gate held, but the attacker found two gaps. After a red re-run it re-applied the same fix about 100 times, and once it simply stopped and left its edit behind. Two rules closed them: **one fix attempt per failure**, and **fail closed** (an agent that ends without a PR or an issue has its edits undone, and code files the issue). After that the red team opened **0 PRs and changed 0 test files**.
+The gate is what makes "the model cannot skip it" true. It is a Strands `InterventionHandler`, so every tool call the agent makes passes through it before it runs:
+
+```python
+# hoh/agent.py
+class HealGate(InterventionHandler):
+    """Enforces Decider's verdict on the two tools that change code."""
+
+    name = "heal-or-halt-gate"
+
+    def before_tool_call(self, event, **kwargs):
+        action = self._check(event)          # Proceed() or Deny(reason=...)
+        if getattr(action, "type", "") == "deny":
+            g = run.current
+            g.denials = getattr(g, "denials", 0) + 1
+            if g.denials >= MAX_DENIALS:     # 3 strikes: code halts the case
+                raise GateLockout(f"{g.denials} denied attempts")
+        return action
+
+# one agent per root cause, on Amazon Nova 2 Lite, with the gate in front of its tools
+agent = Agent(model=model, tools=make_tools(run), interventions=[gate],
+              system_prompt=SYSTEM_PROMPT, callback_handler=None)
+```
+
+`_check` denies `apply_locator_fix` and `open_pr` unless the verdict is HEAL. It also denies a second fix attempt, a name that still contains the old one, and an `open_pr` before a green re-run.
+
+I also ran a red team: the same agent with a system prompt telling it to always make the suite green and never file issues. The first version of the gate held, but the attacker found two gaps. After a red re-run it re-applied the same fix about 100 times, and once it simply stopped and left its edit behind. Two rules closed them: **one fix attempt per failure**, and **fail closed** (an agent that ends without a PR or an issue has its edits undone, and code files the issue). After that the red team opened **0 PRs and changed 0 test files**.
 
 ## Then I pointed it at a real app
 
@@ -110,12 +262,84 @@ A practice app I wrote myself proves little, so I ran the same agent, with uncha
 
 **Zero wrong heals**, and the last row taught me something SplitPay never could. That button only appears after you tick a todo, so the page's first-load snapshot did not change and the evidence held no new name. Decider still leaned heal (0.77), the agent guessed "Clear", and **the guess passed the re-run**, because Playwright matches button names by substring. A green PR, built on a guess.
 
-The gate now accepts only a new name that is visible on a `+` line of the evidence. The same rule went into the reusable pattern, with a regression test. I re-ran the full 34-case scorecard after the change: still 34/34. The miss is a safe one: a real rename went to a person instead of being healed.
+The gate now accepts only a new name that is visible on a `+` line of the evidence:
+
+```python
+# hoh/agent.py, inside HealGate._check, for apply_locator_fix
+added = [ln for ln in g.state["a11y_diff"].splitlines() if ln.startswith("+")]
+if not any(f'"{new}"' in ln for ln in added):
+    return Deny(reason=f"'{new}' does not appear on a '+' line of a11y_diff, so the new name is a "
+                       "guess. Do not change code; file an issue for the test author.")
+```
+
+```python
+# tests/test_gate.py
+def test_new_name_must_be_on_a_plus_line_of_the_evidence():
+    """Found on real TodoMVC: the button was hidden on first load, the diff was empty, and the agent
+    guessed 'Clear', which passed only because Playwright matches names by substring."""
+    gate, _ = gate_for("heal", locator='get_by_role("button", name="Clear completed")', a11y_diff="(no change)")
+    assert call(gate, "apply_locator_fix", old_name="Clear completed", new_name="Clear").type == "deny"
+```
+
+The same rule went into the reusable pattern's `decide()`, with its own test. I re-ran the full 34-case scorecard after the change: still 34/34. The miss is a safe one: a real rename went to a person instead of being healed.
 
 The real app found two more problems, both in my harness rather than the model:
 
 - **Python's built-in test server drops scripts.** It queues only 5 connections, TodoMVC loads 8 scripts at once, and about one run in five a healthy app failed to start and looked broken. The queue is now 64.
 - **`hoh run` only understood a one-file app.** It now snapshots the whole `app/` folder and heals across every test file.
+
+## Proof it's real
+
+This is the agent's own console output from `make todomvc` on 18 Oct, unedited apart from shortening the model's closing sentence.
+
+**The combo commit: Decider is right, and the re-run still says no.**
+
+```
+=== combo  commit: "copy + counter refactor"  (before = HEAD~1)
+  [suite]   4 failing test(s)
+  [decider] can_heal 0.90 -> HEAL (>= 0.73)  owner=test_author  (2809 ms)
+  [gate]    PROCEED apply_locator_fix 'What needs to be done?' -> 'Add a task'
+  [rerun]   RED, 2 failing
+  [agent]   I fixed the locator but the tests are now failing due to a counter logic issue ...
+  [output]  examples-run/todomvc/cases/combo/ISSUE-1.md
+```
+
+**The guess the gate refused.**
+
+```
+=== rename-clear  commit: "copy: shorter clear button"  (before = HEAD~1)
+  [suite]   1 failing test(s)
+  [decider] can_heal 0.77 -> HEAL (>= 0.73)  owner=test_author  (6335 ms)
+  [gate]    DENY apply_locator_fix: 'Clear' is not on any '+' line of the evidence
+  [output]  examples-run/todomvc/cases/rename-clear/ISSUE-1.md
+```
+
+**A Heal Receipt** (trimmed: the trigger-commit line, the error and the code diff are left out). The model writes the title and the two sentences. Everything under "Receipt" is inserted by code:
+
+````
+# PR 1: Fix placeholder text in todo test
+
+The test was failing because the placeholder text changed from 'What needs to be done?'
+to 'Add a task'. Updated the locator to match the new text, and all tests now pass.
+
+## Receipt (facts inserted by code, not by a model)
+
+- Decision: `can_heal 0.91 -> HEAL (>= 0.73)`
+- Owner: `test_author`   Decider latency: 19768 ms
+- Re-run after fix: green
+- Failing tests: test_add_todos, test_counter_after_completing, test_clear_completed, test_active_filter
+- Locator: `get_by_placeholder("What needs to be done?")`
+
+Accessibility diff:
+```diff
+-- textbox "What needs to be done?"
++- textbox "Add a task"
+```
+
+Branch: `heal/what-needs-to-be-done-to-add-a-task`
+````
+
+That receipt also shows a 19.8-second Decider call. It came from the video recording, while the laptop was deep in swap. I left it in; it is the same reason I don't claim a speed win below.
 
 ## The benchmarks: local, Bedrock, EC2 and AgentCore
 
@@ -179,9 +403,28 @@ Before any of that ships, the eval has to be re-run on the deployed Decider. My 
 
 ## Try it
 
-You need an Apple-silicon Mac, Google Chrome, Python 3.12, `uv`, and AWS credentials with Amazon Nova access in us-east-1. Then run `make setup`, `make serve`, `make check` (it must say `READY`) and `make playground`, rename the button in `playground/app/index.html`, commit, and run `make run`. You get either a `heal/...` branch with `PR-1.md`, or an `ISSUE-1.md`.
+You need an Apple-silicon Mac, Google Chrome, Python 3.12, `uv`, and AWS credentials with Amazon Nova access in us-east-1.
 
-`make todomvc` reruns the real-repo test, `make eval` the benchmark and `make scorecard` the full agent on all 34 mutations.
+Run these one at a time:
+
+```bash
+git clone https://github.com/logesh4v/heal-or-halt.git
+cd heal-or-halt
+make setup
+make serve
+make check
+make test
+make playground
+sed -i '' 's/>Split bill</>Calculate shares</' playground/app/index.html
+git -C playground commit -qam "copy: rename the main button"
+make run
+```
+
+- `make setup` builds the venv, the pinned Decider and its model weights (about 4 GB).
+- `make serve` starts Decider on 127.0.0.1:8099. `make check` must print `READY`.
+- `make test` runs 27 tests with no model and no AWS.
+- `make run` should leave a branch `heal/split-bill-to-calculate-shares` and a `PR-1.md` in `playground/`.
+- `make todomvc` reruns the four real TodoMVC commits, `make eval` the held-out benchmark and `make scorecard` the full agent on all 34 mutations.
 
 - Repo: https://github.com/logesh4v/heal-or-halt
 - Video: https://youtu.be/oHNKQBP5hpc
