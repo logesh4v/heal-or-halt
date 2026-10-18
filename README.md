@@ -18,7 +18,7 @@ Built for the AWS **Agent Experience Hackathon: Strands Decider**. Decision patt
 | What does Bedrock do? | Amazon Nova 2 Lite runs the Strands agent and writes the fix, the PR and the issue; Amazon Nova Pro gives a veto-only second opinion in the grey zone |
 | Does it work? | Held-out eval: **27/27** fixable failures healed, **0/21** wrong heals (Nova Micro asked the same question: 13/27 and 3/21). Full agent: **34/34**. Real repo ([tastejs/todomvc](https://github.com/tastejs/todomvc)): 4 commits, **0 wrong heals** |
 | Is it reusable? | Yes: [`patterns/policy-can-heal/`](patterns/policy-can-heal/) is a drop-in Strands `InterventionHandler` with its questions, rules and threshold notes |
-| What does the decision cost? | $0 in API fees, against about $9-20 (Nova Micro) or $132 (Nova Pro) per million decisions. Latency is a tie on a laptop; the win is correctness. [`results/COST_LATENCY.md`](results/COST_LATENCY.md) |
+| What does the decision cost? | $0 in API fees, against about $9-10 (Nova Micro) or $132 (Nova Pro) per million decisions. Latency is a tie on a laptop; the win is correctness. [`results/COST_LATENCY.md`](results/COST_LATENCY.md) |
 | Demo video | [Watch on YouTube](https://youtu.be/oHNKQBP5hpc) (2:49, silent with captions, recorded from live runs) |
 | Article | {{ARTICLE_LINK}} |
 
@@ -128,7 +128,7 @@ Upstream [tastejs/todomvc](https://github.com/tastejs/todomvc) (`javascript-es5`
 
 ### Cost and latency
 
-The win is correctness, not speed: Nova Micro asked the same question would have made 3 wrong heals on the held-out eval; Heal or Halt made 0. Decider costs $0 per decision in API fees against ~$9-20 (Nova Micro) or ~$132 (Nova Pro) per million, and no test data leaves the machine. Latency is a tie at best on a laptop. Full table and sources: [`results/COST_LATENCY.md`](results/COST_LATENCY.md).
+The win is correctness, not speed: Nova Micro asked the same question would have made 3 wrong heals on the held-out eval; Heal or Halt made 0. Decider costs $0 per decision in API fees against ~$9-10 (Nova Micro) or ~$132 (Nova Pro) per million, and no test data leaves the machine. Latency is a tie at best on a laptop. Full table and sources: [`results/COST_LATENCY.md`](results/COST_LATENCY.md).
 
 ### Other measurements
 
@@ -355,7 +355,7 @@ results/                   EVAL.md, AGENT_SCORECARD.md, REAL_REPO.md, COST_LATEN
 spike/                     day-0 probe scripts
 tools/smoke.py             live smoke test
 tools/make_video_pro.py    the demo video, recorded from live runs
-blog/article-draft.md      Builder Center article draft
+blog/article.md            the Builder Center article
 docs/                      ARCHITECTURE.md, VIDEO_SCRIPT.md, assets/hero.png (+ its HTML source)
 ```
 
