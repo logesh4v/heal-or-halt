@@ -20,7 +20,7 @@ Built for the AWS **Agent Experience Hackathon: Strands Decider**. Decision patt
 | Is it reusable? | Yes: [`patterns/policy-can-heal/`](patterns/policy-can-heal/) is a drop-in Strands `InterventionHandler` with its questions, rules and threshold notes |
 | What does the decision cost? | $0 in API fees, against about $9-10 (Nova Micro) or $132 (Nova Pro) per million decisions. Latency is a tie on a laptop; the win is correctness. [`results/COST_LATENCY.md`](results/COST_LATENCY.md) |
 | Demo video | [Watch on YouTube](https://youtu.be/oHNKQBP5hpc) (2:49, silent with captions, recorded from live runs) |
-| Article | {{ARTICLE_LINK}} |
+| Article | [Read on AWS Builder Center](https://builder.aws.com/project/3L2G4E6vCODhuzoca1SYg5DJvEY/heal-or-halt-my-test-suite-now-decides-when-to-fix-itself-and-when-it-must-not) (the build-and-break story, with diagrams, real code and benchmarks) |
 
 ## For reviewers: where each requirement is
 

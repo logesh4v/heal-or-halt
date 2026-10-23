@@ -441,6 +441,7 @@ make run
 
 - Repo: https://github.com/logesh4v/heal-or-halt
 - Video: https://youtu.be/oHNKQBP5hpc
+- Published on AWS Builder Center: https://builder.aws.com/project/3L2G4E6vCODhuzoca1SYg5DJvEY/heal-or-halt-my-test-suite-now-decides-when-to-fix-itself-and-when-it-must-not
 
 ## What I'd tell another builder
 
